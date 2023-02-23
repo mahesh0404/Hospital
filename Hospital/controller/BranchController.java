@@ -35,17 +35,17 @@ public class BranchController {
       
  
 	
-//	@PutMapping("/updatebranch/{hospitalId}")
-//	public Branch insert(@PathVariable int hospitalId, @RequestBody Branch branch) {
-//	    Optional<Hospital> optionalHospital = hospitalDao.getHosById(hospitalId);
-//	    if (optionalHospital.isPresent()) {
-//	        Hospital hospital = optionalHospital.get();
-//	        branch.setHospital(hospital);
-//	        return branchDao.saveBranch(branch);
-//	    } else {
-//	        throw new RuntimeException("Hospital not found");
-//	    }
-//	}
+	@PutMapping("/updatebranch/{hospitalId}")
+	public Branch insert(@PathVariable int hospitalId, @RequestBody Branch branch) {
+	    Optional<Hospital> optionalHospital = hospitalDao.getHosById(hospitalId);
+	    if (optionalHospital.isPresent()) {
+	        Hospital hospital = optionalHospital.get();
+	        branch.setHospital(hospital);
+	        return branchDao.saveBranch(branch);
+	    } else {
+	        throw new RuntimeException("Hospital not found");
+	    }
+	}
 	@GetMapping("/getall")
 	public List<Branch> getAllBranches() {
 	    List<Branch> branches = branchDao.getAllBranches();
